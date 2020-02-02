@@ -17,8 +17,8 @@ import frc.Drivetrain;
  * project.
  */
 public class Robot extends TimedRobot {
-  public static Drivetrain m_drivetrain = null;
-  public static OI m_oi = null;
+  public static Drivetrain drivetrain = new Drivetrain();
+  public static OI oi = new OI();
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -28,11 +28,7 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
-    m_drivetrain = new Drivetrain();
-
-    m_oi = new OI();
-
-    m_drivetrain.drive(0, 0);
+    drivetrain.drive(0, 0);
   }
 
   /**
@@ -80,7 +76,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
-    m_drivetrain.drive(m_oi.getThrottle(), m_oi.getRotation());
+    drivetrain.drive(oi.getThrottle(), oi.getRotation());
   }
 
   @Override

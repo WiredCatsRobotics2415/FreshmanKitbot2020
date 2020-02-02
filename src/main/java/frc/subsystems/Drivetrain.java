@@ -16,10 +16,8 @@ public class Drivetrain extends SubsystemBase {
   /**
    * Creates a new Drivetrain.
    */
-  TalonSRX leftFrontTalon = null;
-  TalonSRX leftBackTalon = null;
-  TalonSRX rightFrontTalon = null;
-  TalonSRX rightBackTalon = null;
+  private TalonSRX leftFrontTalon, leftBackTalon, rightFrontTalon, rightBackTalon;
+
   public Drivetrain() {
   leftFrontTalon = new TalonSRX(RobotMap.DRIVETRAIN_LEFT_FRONT_TALONSRX);
   leftBackTalon = new TalonSRX(RobotMap.DRIVETRAIN_LEFT_BACK_TALONSRX);
@@ -31,9 +29,8 @@ public class Drivetrain extends SubsystemBase {
   }
 
   public void drive(double throttle, double rotation) {
-    rightFrontTalon.set(ControlMode.PercentOutput, throttle - rotation);
-    leftFrontTalon.set(ControlMode.PercentOutput, throttle + rotation);
-
+    leftFrontTalon.set(ControlMode.PercentOutput, throttle - rotation);
+    rightFrontTalon.set(ControlMode.PercentOutput, throttle + rotation);
   }
  
   @Override
