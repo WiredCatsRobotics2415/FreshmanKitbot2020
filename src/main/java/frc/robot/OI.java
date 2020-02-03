@@ -1,7 +1,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.XboxController;
-import frc.RobotMap;
+import frc.robot.RobotMap;
 public class OI extends RobotMap {
     private XboxController controller = new XboxController(0);
 
